@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension  version="4.0" type="plugin" group="system" method="upgrade">
+	<name>System - jPassPhrase</name>
+	<author>Kontent Design</author>
+	<creationDate>10/18/16</creationDate>
+	<copyright>Copyright (C) 2016 Kontent Design. All rights reserved.</copyright>
+	<license>GNU/GPL http://www.gnu.org/copyleft/gpl.html</license>
+	<authorEmail>ron@kontentdesign.com</authorEmail>
+	<authorUrl>www.kontentdesign.com.com</authorUrl>
+	<version>4.0</version>
+	<description>Require a passphrase for members to register on your Joomla 3.x site - for your existing club, organization, church, etc.
+	jPassPhrase consists of a plugin and a module - you need to install both!
+	The plugin intercepts the URL of the registration page, so that a passphrase must be properly submitted before a user can register on the site.
+	The user submits the passphrase in the module. If it is correct, then they are allowed to register.
+	Incorrect passphrase attempts will normally be redirected to your home page, or to the "Alternate Passphrase Page URL" if you enter a URL there.
+	If you are using a different registration component than the standard Joomla registration -
+	In your browser URL window, copy the URL of your registration page, and paste it into the "Alternate Registration Page URL" field.
+	To use the jPassPhrase module - After enabling and setting up the plugin, go to the Module Manager to enable the module, setup parameters,
+	and position the jPassPhrase module anywhere you want, just like any other module.
+	If you want to use a passphrase page instead of a module position, here is how to do it.
+	Use Plugin Manager and make sure that "Content-Load Module" is enabled and set for "No Wrapping".
+	Then use the Module Manager and enable the jPassPhrase module, in the "Module Position" type in "jpassphrase".
+	Under "Menus", select "All". Then use the Joomla Article Manager to create an article.
+	Inside the article put {loadposition jpassphrase} , include the brackets! Then publish and save the article.
+	If you want, you can add more article text later.
+	Now display the article on you website and copy the URL starting with "index.php?option=.....", then paste that URL into the plugin setting
+	"Alternate Passphrase Page URL". Now when someone tries to register, this page will be displayed including the submit Passphrase box.
+	The passphrase must be correctly entered before registration is allowed.
+	The debug option is normally turned off. If enabled, helpful debug messages are displayed for debugging registration issues.
+	</description>
+	<files>
+		<filename plugin="jrpassphrase">jpassphrase.php</filename>
+	</files>
+	<config>
+	<fields name="params">
+	<fieldset name="basic">
+		<field name="reg_passphrase" type="textarea" cols="30" rows="5" default="" label="Registration Passphrase" description="The user must provide this passphrase to proceed with registration. Letters and numbers only, spaces are OK."/>
+		<field type="spacer" />
+		<field name="intercept_message" type="textarea" cols="30" rows="5" default="Please enter a passphrase below to register on this site." label="Intercept Message" description="This is the message displayed when a registration attempt occurs. Put in one space if you don't want to display an intercept message."/>
+		<field name="fail_message" type="textarea" cols="30" rows="5" default="Passphrase Incorrect - please try again." label="Incorrect Passphrase Message" description="This is the message displayed when an incorrect passphrase is submitted."/>
+		<field name="message_type" type="radio" default="warning" label="Select Joomla Message Type:" description="Choose the Joomla message type to be used.">
+			<option value="message">Message</option>
+			<option value="notice">Notice</option>
+			<option value="warning">Warning</option>
+			<option value="error">Error</option>
+		</field>
+		<field type="spacer" />
+		<field name="passphrase_page_url" type="textarea" cols="30" rows="5" default="" label="Alternate Passphrase Page URL" description="Normally leave this blank . If you are using an alternate location for the passphrase page(where you enter the passphrase), then enter the full URL (http://www.etc...)" />
+		<field name="alt_reg_url" type="textarea" cols="30" rows="5" default="" label="Alternate Registration Page URL" description="Normally leave this blank . If you are not using the standard Joomla Registration, then enter the full URL (http://www.etc...) of the Registration Page that you are using."/>
+		<field type="spacer" />
+		<field name="intercept_string" type="textarea" cols="30" rows="5" default="" label="Intercept String" description="Normally leave this blank. If you have a third party registration component, such as VirtueMart, enter a unique substring from the URL of that registration component.(eg: shop.registration)"/>
+		<field name="bypass_string" type="textarea" cols="30" rows="5" default="" label="Bypass string" description="Normally leave this blank. If you have a multi-page registration form, enter unique strings (separated by spaces) from the URL of the additional page(s) to prevent it from getting intercepted by jPassPhrase."/>
+		<field type="spacer" />
+		<field name="debug" type="radio" default="0" label="Turn on debugging mode" description="Normally leave this off.">
+		<option value="0">Off</option>
+		<option value="1">On</option>
+		</field>
+	</fieldset>
+	</fields>
+	</config>
+</extension>

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension  version="4.0" type="module" group="system" method="upgrade">
+	<name>jPassPhrase</name>
+	<author>Kontent Design</author>
+	<creationDate>10/18/16</creationDate>
+	<copyright>Copyright (C) 2016 Kontent Design. All rights reserved.</copyright>
+	<license>GNU/GPL http://www.gnu.org/copyleft/gpl.html</license>
+	<authorEmail>ron@kontentdesign.com</authorEmail>
+	<authorUrl>www.kontentdesign.com.com</authorUrl>
+	<version>4.0</version>
+	<description>jPassPhrase 
+	For use on Joomla v3.0x websites only. Do not use on prior versions.
+	It will appear as "jPassPhrase Registration Control" in the Joomla Module Manager.
+	Remember to enable the module and setup any options.
+	Usually the order of this module should be set to one below the Joomla Login Form module. Also, be sure to enable and setup the jPassPhrase plugin!
+	If you want to use a passphrase page instead of a module position, here is how to do it.
+	Use the Module Manager and enable the jPassPhrase module, in the "Module Position" type in "jpassphrase".
+	Under "Menus", select "All". Then use the Joomla Article Manager to create an article.
+	Inside the article put {loadposition jpassphrase}. Include the brackets then save the article.
+	If you want, you can add more article text later.
+	Now display the article on you website and copy the URL starting with "index.php?option=.....", then paste that URL into the jPassPhrase plugin setting
+	"Alternate Passphrase Page URL". Now when someone tries to register, this page will be displayed including the submit Passphrase box.
+	The passphrase must be correctly entered before registration is allowed.
+	</description>
+	<files>
+	       <filename module="mod_jpassphrase">mod_jpassphrase.php</filename>
+	</files>
+	<config>
+	<fields name="params">
+	<fieldset name="basic">
+		<field name="pre_text" type="textarea" cols="30" rows="5" default="In order to register on this site, you must first submit the passphrase below." label="Text displayed above button" description="Enter the text you would like to display above the button."/>
+		<field name="button_space" type="text" size="30" default="0" label="Button Space" description="Enter number of line spaces (0 to 4) between input box and button."/>
+		<field	name="box_width"
+				type="list"
+				default="medium"
+				label="Passphrase Text Box Width"
+				description="MOD_LOGIN_FIELD_NAME_DESC">
+				<option
+				value="small">Small</option>
+				<option
+				value="medium">Medium</option>
+				<option
+				value="large">Large</option>
+		</field>
+		<field name="button_text" type="text" size="30" default="Submit" label="Button Text" description="Enter the button text."/>
+		<field name="post_text" type="textarea" cols="30" rows="5" default="" label="Text displayed below button" description="Enter the text you would like to display below the button."/>
+		<field name="@spacer" type="spacer" default="" label="" description="" />
+		<field name="moduleclass_sfx" type="text" default="" label="Module Class Suffix" description="PARAMMODULECLASSSUFFIX" />
+	</fieldset>
+	</fields>
+	</config>
+</extension>

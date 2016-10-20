@@ -14,7 +14,7 @@ ob_start();  // output buffer to allow redirection later, must occur before any 
 
 <!-- BEGIN jPASSPHRASE PHP CODE TO PROCESS PASSPHRASE SUBMIT BUTTON -->
 <?PHP
-	$mainframe = &JFactory::getApplication();
+	$mainframe = JFactory::getApplication();
 	$redirect_url = 'index.php?option=com_users&view=registration' ; //Standard Joomla registration page
 	if (isset($_POST['submitted'])) {  //if submit button clicked
 		$passphrase = $_POST['passphrase']; //text from submit box
